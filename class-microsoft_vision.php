@@ -45,7 +45,7 @@ class MicrosoftVision{
     //return: (string) url apra requisitar o resultado
     static public function request_azure($url, $request_body){
         //chave de autenticacao portal azure
-        $azure_key = "private_key_azure";
+        $azure_key = "api_key";
         //define vazio a url de consulta de resultado
         $url_result_consult = "";
         //inicia a requisicao
@@ -103,7 +103,7 @@ class MicrosoftVision{
     //return: (obj) dados da conversao parseados em json
     static public function consult_result_translate($url_result_consult){
         //chave de autenticacao portal azure
-        $azure_key = "private_key_azure";
+        $azure_key = "api_key";
         //inicia a requisicao
         $ch = curl_init();
         //define url da requisicao

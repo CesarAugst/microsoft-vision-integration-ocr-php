@@ -5,7 +5,7 @@ require_once "class-microsoft_vision.php";
 //definicao de url
 $url = "https://southcentralus.api.cognitive.microsoft.com/vision/v3.2/read/analyze";
 //corpo da reequisicao
-$request_body = "{'url':'https://s.dicio.com.br/texto.jpg'}";
+$request_body = "{'url':'".$_GET['url']."'}";
 //solicita conversao de imagem em texto
 $url_result_consult = MicrosoftVision::request_azure($url, $request_body);
 //se nao foi possivel converter
