@@ -180,4 +180,37 @@ class MicrosoftVision{
         //retorna o array de linhas
         return $array_only_lines;
     }
+
+    //desc: pega a resposta da conversao e formata em um array dividido por linhas de rapidApi
+    //params: (obj) resposta da requisicao
+    //return: (array) conversao em array da resposta
+    public static function format_result_per_line_rapidapi($result_translate)
+    {
+        //define vazio o array de linhas
+        $array_only_lines = [];
+
+        //converte resultado em json
+        $json_result = json_decode($result_translate);
+        //para cada regiao
+        foreach ($json_result->regions as $region){
+            //linha de cada regiao
+            $lines = $region->lines;
+            //para cada linha
+            foreach ($lines as $line){
+                //texto da linha
+                $list_words_in_line = "";
+
+                //palavra na linha
+                $words = $line->words;
+                //para cada palavra
+                foreach ($words as $word){
+                    $list_words_in_line .= $word->text. " ";
+                }
+                //coloca na lista de linhas
+                $array_only_lines[] = $list_words_in_line;
+            }
+        }
+        //retorna array de linhas
+        return $array_only_lines;
+    }
 }
